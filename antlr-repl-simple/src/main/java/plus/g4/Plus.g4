@@ -24,5 +24,8 @@ list: '(' '+' expr expr ')'
 INT: [0-9]
 	;
 
-WS: [ \t\r\n]+ -> skip
+WS: [ \t]+ -> skip
+	;
+
+EOL: ( '\r' '\n' ? | '\n' ) -> skip
 	;
