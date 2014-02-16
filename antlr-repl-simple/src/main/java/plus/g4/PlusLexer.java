@@ -15,17 +15,17 @@ public class PlusLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__2=1, T__1=2, T__0=3, INT=4, WS=5, EOL=6;
+		INT=1, LIST_BEGIN=2, LIST_END=3, PLUS=4, WS=5, EOL=6;
 	public static String[] modeNames = {
 		"DEFAULT_MODE"
 	};
 
 	public static final String[] tokenNames = {
 		"<INVALID>",
-		"')'", "'+'", "'('", "INT", "WS", "EOL"
+		"INT", "'('", "')'", "'+'", "WS", "EOL"
 	};
 	public static final String[] ruleNames = {
-		"T__2", "T__1", "T__0", "INT", "WS", "EOL"
+		"INT", "LIST_BEGIN", "LIST_END", "PLUS", "WS", "EOL"
 	};
 
 
@@ -75,8 +75,8 @@ public class PlusLexer extends Lexer {
 		"\3\7\2\b\3\3\1\5\4\1\7\5\1\t\6\1\13\7\2\r\b\3\3\2\4\3\2\62;\4\2\13\13"+
 		"\"\")\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r"+
 		"\3\2\2\2\3\17\3\2\2\2\5\21\3\2\2\2\7\23\3\2\2\2\t\25\3\2\2\2\13\30\3\2"+
-		"\2\2\r#\3\2\2\2\17\20\7+\2\2\20\4\3\2\2\2\21\22\7-\2\2\22\6\3\2\2\2\23"+
-		"\24\7*\2\2\24\b\3\2\2\2\25\26\t\2\2\2\26\n\3\2\2\2\27\31\t\3\2\2\30\27"+
+		"\2\2\r#\3\2\2\2\17\20\t\2\2\2\20\4\3\2\2\2\21\22\7*\2\2\22\6\3\2\2\2\23"+
+		"\24\7+\2\2\24\b\3\2\2\2\25\26\7-\2\2\26\n\3\2\2\2\27\31\t\3\2\2\30\27"+
 		"\3\2\2\2\31\32\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\34\3\2\2\2\34\35"+
 		"\b\6\2\2\35\f\3\2\2\2\36 \7\17\2\2\37!\7\f\2\2 \37\3\2\2\2 !\3\2\2\2!"+
 		"$\3\2\2\2\"$\7\f\2\2#\36\3\2\2\2#\"\3\2\2\2$%\3\2\2\2%&\b\7\3\2&\16\3"+

@@ -18,9 +18,9 @@ public class PlusParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__2=1, T__1=2, T__0=3, INT=4, WS=5, EOL=6;
+		INT=1, LIST_BEGIN=2, LIST_END=3, PLUS=4, WS=5, EOL=6;
 	public static final String[] tokenNames = {
-		"<INVALID>", "')'", "'+'", "'('", "INT", "WS", "EOL"
+		"<INVALID>", "INT", "'('", "')'", "'+'", "WS", "EOL"
 	};
 	public static final int
 		RULE_expr = 0, RULE_list = 1;
@@ -75,7 +75,7 @@ public class PlusParser extends Parser {
 					
 				}
 				break;
-			case 3:
+			case LIST_BEGIN:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(6); ((ExprContext)_localctx).x = list();
@@ -97,12 +97,15 @@ public class PlusParser extends Parser {
 	}
 
 	public static class ListContext extends ParserRuleContext {
+		public TerminalNode LIST_BEGIN() { return getToken(PlusParser.LIST_BEGIN, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
+		public TerminalNode PLUS() { return getToken(PlusParser.PLUS, 0); }
+		public TerminalNode LIST_END() { return getToken(PlusParser.LIST_END, 0); }
 		public ListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -115,11 +118,11 @@ public class PlusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(9); match(3);
-			setState(10); match(2);
+			setState(9); match(LIST_BEGIN);
+			setState(10); match(PLUS);
 			setState(11); expr();
 			setState(12); expr();
-			setState(13); match(1);
+			setState(13); match(LIST_END);
 
 					vm.plus();
 				
@@ -139,9 +142,9 @@ public class PlusParser extends Parser {
 	public static final String _serializedATN =
 		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\b\23\4\2\t\2\4\3"+
 		"\t\3\3\2\3\2\3\2\5\2\n\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\2\4\2\4\2\2"+
-		"\21\2\t\3\2\2\2\4\13\3\2\2\2\6\7\7\6\2\2\7\n\b\2\1\2\b\n\5\4\3\2\t\6\3"+
-		"\2\2\2\t\b\3\2\2\2\n\3\3\2\2\2\13\f\7\5\2\2\f\r\7\4\2\2\r\16\5\2\2\2\16"+
-		"\17\5\2\2\2\17\20\7\3\2\2\20\21\b\3\1\2\21\5\3\2\2\2\3\t";
+		"\21\2\t\3\2\2\2\4\13\3\2\2\2\6\7\7\3\2\2\7\n\b\2\1\2\b\n\5\4\3\2\t\6\3"+
+		"\2\2\2\t\b\3\2\2\2\n\3\3\2\2\2\13\f\7\4\2\2\f\r\7\6\2\2\r\16\5\2\2\2\16"+
+		"\17\5\2\2\2\17\20\7\5\2\2\20\21\b\3\1\2\21\5\3\2\2\2\3\t";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {
