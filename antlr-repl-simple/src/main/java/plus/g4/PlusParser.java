@@ -58,14 +58,6 @@ public class PlusParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PlusListener ) ((PlusListener)listener).enterExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PlusListener ) ((PlusListener)listener).exitExpr(this);
-		}
 	}
 
 	public final ExprContext expr() throws RecognitionException {
@@ -115,14 +107,6 @@ public class PlusParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_list; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PlusListener ) ((PlusListener)listener).enterList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PlusListener ) ((PlusListener)listener).exitList(this);
-		}
 	}
 
 	public final ListContext list() throws RecognitionException {
