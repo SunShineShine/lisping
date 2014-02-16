@@ -1,5 +1,8 @@
 // Generated from Plus.g4 by ANTLR 4.1
 package plus.g4;
+
+	import plus.PlusVm;
+
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

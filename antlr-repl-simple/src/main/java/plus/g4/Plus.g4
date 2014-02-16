@@ -1,18 +1,23 @@
 grammar Plus;
 
+@parser::header {
+	import plus.PlusVm;
+}
+
+@parser::members {
+	PlusVm vm = new PlusVm();
+}
+
 expr: INT
 	{
-		System.out.println("found expr int: " + $INT.text);
+		vm.read($INT.text);
 	}
 	| x = list
-	{
-		System.out.println("found expr list: " + $x.text);
-	}
 	;
 
-list: '(' '+' a = expr b = expr ')'
+list: '(' '+' expr expr ')'
 	{
-		System.out.printf("found list: %s + %s\n", $a.text, $b.text);
+		vm.plus();
 	}
 	;
 
