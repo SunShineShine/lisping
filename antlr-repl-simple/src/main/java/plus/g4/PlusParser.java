@@ -42,6 +42,8 @@ public class PlusParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class ExprContext extends ParserRuleContext {
+		public Token INT;
+		public ListContext x;
 		public ListContext list() {
 			return getRuleContext(ListContext.class,0);
 		}
@@ -64,18 +66,24 @@ public class PlusParser extends Parser {
 		ExprContext _localctx = new ExprContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_expr);
 		try {
-			setState(6);
+			setState(9);
 			switch (_input.LA(1)) {
 			case INT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(4); match(INT);
+				setState(4); ((ExprContext)_localctx).INT = match(INT);
+
+						System.out.println("found expr int: " + (((ExprContext)_localctx).INT!=null?((ExprContext)_localctx).INT.getText():null));
+					
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(5); list();
+				setState(6); ((ExprContext)_localctx).x = list();
+
+						System.out.println("found expr list: " + (((ExprContext)_localctx).x!=null?_input.getText(((ExprContext)_localctx).x.start,((ExprContext)_localctx).x.stop):null));
+					
 				}
 				break;
 			default:
@@ -94,6 +102,8 @@ public class PlusParser extends Parser {
 	}
 
 	public static class ListContext extends ParserRuleContext {
+		public ExprContext a;
+		public ExprContext b;
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
@@ -120,11 +130,14 @@ public class PlusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(8); match(3);
-			setState(9); match(2);
-			setState(10); expr();
-			setState(11); expr();
-			setState(12); match(1);
+			setState(11); match(3);
+			setState(12); match(2);
+			setState(13); ((ListContext)_localctx).a = expr();
+			setState(14); ((ListContext)_localctx).b = expr();
+			setState(15); match(1);
+
+					System.out.printf("found list: %s + %s\n", (((ListContext)_localctx).a!=null?_input.getText(((ListContext)_localctx).a.start,((ListContext)_localctx).a.stop):null), (((ListContext)_localctx).b!=null?_input.getText(((ListContext)_localctx).b.start,((ListContext)_localctx).b.stop):null));
+				
 			}
 		}
 		catch (RecognitionException re) {
@@ -139,11 +152,12 @@ public class PlusParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\7\21\4\2\t\2\4\3"+
-		"\t\3\3\2\3\2\5\2\t\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\2\4\2\4\2\2\17\2\b"+
-		"\3\2\2\2\4\n\3\2\2\2\6\t\7\6\2\2\7\t\5\4\3\2\b\6\3\2\2\2\b\7\3\2\2\2\t"+
-		"\3\3\2\2\2\n\13\7\5\2\2\13\f\7\4\2\2\f\r\5\2\2\2\r\16\5\2\2\2\16\17\7"+
-		"\3\2\2\17\5\3\2\2\2\3\b";
+		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\7\25\4\2\t\2\4\3"+
+		"\t\3\3\2\3\2\3\2\3\2\3\2\5\2\f\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\2\4"+
+		"\2\4\2\2\23\2\13\3\2\2\2\4\r\3\2\2\2\6\7\7\6\2\2\7\f\b\2\1\2\b\t\5\4\3"+
+		"\2\t\n\b\2\1\2\n\f\3\2\2\2\13\6\3\2\2\2\13\b\3\2\2\2\f\3\3\2\2\2\r\16"+
+		"\7\5\2\2\16\17\7\4\2\2\17\20\5\2\2\2\20\21\5\2\2\2\21\22\7\3\2\2\22\23"+
+		"\b\3\1\2\23\5\3\2\2\2\3\13";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {
