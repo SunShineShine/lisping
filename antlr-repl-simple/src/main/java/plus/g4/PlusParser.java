@@ -15,9 +15,9 @@ public class PlusParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__2=1, T__1=2, T__0=3, INT=4;
+		T__2=1, T__1=2, T__0=3, INT=4, WS=5;
 	public static final String[] tokenNames = {
-		"<INVALID>", "')'", "'+'", "'('", "INT"
+		"<INVALID>", "')'", "'+'", "'('", "INT", "WS"
 	};
 	public static final int
 		RULE_expr = 0, RULE_list = 1;
@@ -139,7 +139,7 @@ public class PlusParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\6\21\4\2\t\2\4\3"+
+		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\7\21\4\2\t\2\4\3"+
 		"\t\3\3\2\3\2\5\2\t\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\2\4\2\4\2\2\17\2\b"+
 		"\3\2\2\2\4\n\3\2\2\2\6\t\7\6\2\2\7\t\5\4\3\2\b\6\3\2\2\2\b\7\3\2\2\2\t"+
 		"\3\3\2\2\2\n\13\7\5\2\2\13\f\7\4\2\2\f\r\5\2\2\2\r\16\5\2\2\2\16\17\7"+
