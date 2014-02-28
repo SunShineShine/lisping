@@ -1,4 +1,4 @@
-package lisping.vm;
+package lisping.util;
 
 import org.apache.commons.collections4.map.AbstractHashedMap;
 import org.apache.commons.collections4.map.HashedMap;

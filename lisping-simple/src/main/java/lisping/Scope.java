@@ -2,7 +2,7 @@ package lisping;
 
 import java.util.Map;
 
-import lisping.vm.HashMap;
+import lisping.util.HashMap;
 
 public class Scope {
 
