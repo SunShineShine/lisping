@@ -111,4 +111,9 @@ public class Core {
 		return method;
 	}
 
+	public static Object quote(Object value) {
+		// TODO Auto-generated method stub
+		return value;
+	}
+
 }

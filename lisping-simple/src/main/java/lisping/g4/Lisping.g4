@@ -1,7 +1,7 @@
 grammar Lisping;
 
 @parser::members {
-	LispingReader reader = new LispingReader();
+	LispingInterpreter reader = new LispingInterpreter();
 }
 
 file : expr*
@@ -25,8 +25,10 @@ collection
 
 list
 	@init { reader.newList(); }
+	@after { reader.completeList(); }
 : 
-	LIST_BEGIN { System.out.println("LIST_BEGIN"); } 
+	LIST_BEGIN { System.out.println("LIST_BEGIN"); }
+	expr? { reader.completeListHead(); }
 	expr* 
 	LIST_END { System.out.println("LIST_END"); }
 	;
