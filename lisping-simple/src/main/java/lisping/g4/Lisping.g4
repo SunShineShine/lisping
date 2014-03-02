@@ -38,4 +38,4 @@ STRING : '"' ( ~'"' | '\\' '"' )* '"' ;
 LIST_BEGIN: '(' ;
 LIST_END: ')' ;
 
-WS : [ \t\r\n]+ -> channel(HIDDEN) ;
+WS : [ \t\r\n]+ -> skip ;
