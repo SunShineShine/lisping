@@ -5,10 +5,10 @@ import java.util.ArrayDeque;
 public class LispingReader {
 
 	private ArrayDeque<CollectionReader> stack = new ArrayDeque<>();
-	private CollectionReader current = new FileReader();
+	private CollectionReader parent = new FileReader();
 
 	public void add(Object value) {
-		current.add(value);
+		parent.add(value);
 		System.out.println("found expr: " + value);
 	}
 
@@ -25,14 +25,14 @@ public class LispingReader {
 
 	public void newList() {
 		System.out.println("newList()");
-		stack.addLast(current);
-		current = new ListReader();
+		stack.addLast(parent);
+		parent = new ListReader();
 	}
 
 	public void completeCollection() {
 		System.out.println("completeCollection()");
-		Object value = current.done();
-		current = stack.removeLast();
+		Object value = parent.done();
+		parent = stack.removeLast();
 		add(value);
 	}
 
